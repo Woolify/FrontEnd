@@ -11,13 +11,18 @@ import 'package:woolify/ServerRoutes/ServerDetails.dart';
 import 'package:woolify/SharedPreference.dart';
 
 class ServerAuthenticationRoutes {
-  static Future<FarmerModel?> farmerRegisteration(FarmerModel model) async {
+  static Future<FarmerModel?> farmerRegisteration(
+      FarmerModel model, Map<String, dynamic> location) async {
     try {
-      print(model.toJson().toString());
+      Map<String, dynamic> body = model.toJson();
+      body.addAll(location);
+
+      developer.log(body.toString());
       var data = await http.post(
           Uri.parse(ServerDetails.serverRoute + "/api/user/auth/register"),
-          body: model.toJson());
-      developer.log(data.body, name: "see here");
+          body: body);
+      print("heheh");
+      developer.log(data.body.toString(), name: "see here");
       if (data.statusCode == 200) {
         await http.post(
             Uri.parse(ServerDetails.serverRoute + "/api/user/auth/send-otp"),
@@ -71,8 +76,13 @@ class ServerAuthenticationRoutes {
 
       if (res['user']['role'] == "farmer") {
         await mySharedPreference.pref.setString("token", res['token']!);
+        print(mySharedPreference.pref.getString('token').toString());
         await mySharedPreference.pref.setString("id", res['user']['_id']!);
         await mySharedPreference.pref.setString("role", "farmer");
+      } else if (res['user']['role'] == "vendor") {
+        await mySharedPreference.pref.setString("token", res['token']!);
+        await mySharedPreference.pref.setString("id", res['user']['_id']!);
+        await mySharedPreference.pref.setString("role", "vendor");
       }
       // Add Other Roles Here
       //
@@ -87,6 +97,10 @@ class ServerAuthenticationRoutes {
     if (role == "farmer") {
       print("heh");
       GoRouter.of(context).pushReplacementNamed(FarmerRoutes.homePage);
-    } else if (role == "vendor") {}
+    } else if (role == "vendor") {
+      print('object');
+      // Navigator.of
+      GoRouter.of(context).pushReplacementNamed(VendorRoutes.homePage);
+    }
   }
 }

@@ -35,26 +35,35 @@ class _FarmerHomePage extends ConsumerState<FarmerHomePage> {
       //       },
       //       icon: Icon(Icons.logout))
       // ]),
-      body: screens[currentIndex],
+      body: SafeArea(child: screens[currentIndex]),
       bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.shifting,
-          selectedItemColor: Theme.of(context).colorScheme.primary,
+          currentIndex: currentIndex,
+          type: BottomNavigationBarType.fixed,
+          selectedFontSize: 20,
+          selectedIconTheme: IconThemeData(size: 30),
+          unselectedIconTheme: IconThemeData(size: 20),
+          unselectedFontSize: 15,
+          // selectedItemColor: Theme.of(context).colorScheme.primary,
           onTap: (value) {
             setState(() {
               currentIndex = value;
             });
           },
           items: [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
             BottomNavigationBarItem(
                 icon: SvgPicture.asset(
                   "assets/farmer/sheep.svg",
+                  height: currentIndex == 1 ? 30 : 20,
+                  color: currentIndex == 1
+                      ? Theme.of(context).colorScheme.primary
+                      : Colors.black,
                 ),
-                label: "animal"),
+                label: "Management"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.crop_original_outlined), label: "market"),
+                icon: Icon(Icons.crop_original_outlined), label: "Market"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.account_balance), label: "profile"),
+                icon: Icon(Icons.account_balance), label: "Profile"),
           ]),
     );
   }

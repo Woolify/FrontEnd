@@ -51,83 +51,85 @@ class _FarmerRegisteration extends ConsumerState<FarmerRegisteration> {
               const SizedBox(
                 height: 20,
               ),
-              Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(5, 10, 20, 10),
-                    child: SizedBox(
-                      width: size.width * 0.4,
-                      child: TextFormField(
-                        onSaved: (newValue) {
-                          firstName = newValue!;
-                        },
-                        decoration: InputDecoration(
-                            contentPadding: EdgeInsets.symmetric(
-                                vertical: 5, horizontal: 10),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(35.0),
-                              borderSide: const BorderSide(
-                                color: Colors.blue,
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 8),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: SizedBox(
+                        // width: size.width * 0.4,
+                        child: TextFormField(
+                          onSaved: (newValue) {
+                            firstName = newValue!;
+                          },
+                          decoration: InputDecoration(
+                              contentPadding: EdgeInsets.symmetric(
+                                  vertical: 5, horizontal: 10),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(35.0),
+                                borderSide: const BorderSide(
+                                  color: Colors.blue,
+                                ),
                               ),
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(35)),
-                            // prefixIcon: const Icon(Icons.account_circle),
-                            label: const Text("FirstName"),
-                            hintText: "FirstName"),
-                        validator: (value) {
-                          if (value != null) {
-                            if (value.isNotEmpty) {
-                              return null;
+                              enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(35)),
+                              // prefixIcon: const Icon(Icons.account_circle),
+                              label: const Text("FirstName"),
+                              hintText: "FirstName"),
+                          validator: (value) {
+                            if (value != null) {
+                              if (value.isNotEmpty) {
+                                return null;
+                              } else {
+                                return "Invalid Username";
+                              }
                             } else {
-                              return "Invalid Username";
+                              return "username cannot be empty";
                             }
-                          } else {
-                            return "username cannot be empty";
-                          }
-                        },
+                          },
+                        ),
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 10,
+                    SizedBox(
+                      width: 10,
                     ),
-                    child: SizedBox(
-                      width: size.width * 0.4,
-                      child: TextFormField(
-                        onSaved: (newValue) {
-                          lastName = newValue!;
-                        },
-                        decoration: InputDecoration(
-                            contentPadding: EdgeInsets.symmetric(
-                                vertical: 5, horizontal: 10),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(35.0),
-                              borderSide: const BorderSide(
-                                color: Colors.blue,
+                    Expanded(
+                      child: SizedBox(
+                        // width: size.width * 0.4,
+                        child: TextFormField(
+                          onSaved: (newValue) {
+                            lastName = newValue!;
+                          },
+                          decoration: InputDecoration(
+                              contentPadding: EdgeInsets.symmetric(
+                                  vertical: 5, horizontal: 10),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(35.0),
+                                borderSide: const BorderSide(
+                                  color: Colors.blue,
+                                ),
                               ),
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(35)),
-                            // prefixIcon: const Icon(Icons.account_circle),
-                            label: const Text("LastName"),
-                            hintText: "LastName"),
-                        validator: (value) {
-                          if (value != null) {
-                            if (value.isNotEmpty) {
-                              return null;
+                              enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(35)),
+                              // prefixIcon: const Icon(Icons.account_circle),
+                              label: const Text("LastName"),
+                              hintText: "LastName"),
+                          validator: (value) {
+                            if (value != null) {
+                              if (value.isNotEmpty) {
+                                return null;
+                              } else {
+                                return "Invalid Username";
+                              }
                             } else {
-                              return "Invalid Username";
+                              return "username cannot be empty";
                             }
-                          } else {
-                            return "username cannot be empty";
-                          }
-                        },
+                          },
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10),
@@ -135,7 +137,7 @@ class _FarmerRegisteration extends ConsumerState<FarmerRegisteration> {
                   keyboardType: TextInputType.emailAddress,
                   onSaved: (newValue) {
                     developer.log("emaol " + newValue!);
-                    email = newValue!;
+                    email = newValue;
                   },
                   decoration: InputDecoration(
                       contentPadding:
@@ -170,7 +172,6 @@ class _FarmerRegisteration extends ConsumerState<FarmerRegisteration> {
                   keyboardType: TextInputType.phone,
                   inputFormatters: [LengthLimitingTextInputFormatter(10)],
                   onSaved: (newValue) {
-                    print("phone saved");
                     phone = "+91" + newValue!;
                   },
                   decoration: InputDecoration(
@@ -397,20 +398,19 @@ class _FarmerRegisteration extends ConsumerState<FarmerRegisteration> {
               currentStep: currentStep,
               type: StepperType.horizontal,
               onStepContinue: () async {
-                print("cuur " + currentStep.toString());
                 if (currentStep == 1) {
                   if (fromkey2.currentState!.validate()) {
                     fromkey2.currentState!.save();
-                    print("+9191" + phone);
+
                     FarmerModel data = FarmerModel(
-                        firstName: firstName,
-                        lastName: lastName,
+                        firstName: firstName.trim(),
+                        lastName: lastName.trim(),
                         role: "farmer",
-                        password: password,
-                        phone: phone,
-                        confirmPassword: password,
-                        email: email,
-                        username: username);
+                        password: password.trim(),
+                        phone: phone.trim(),
+                        confirmPassword: password.trim(),
+                        email: email.trim(),
+                        username: username.trim());
                     showDialog(
                         barrierDismissible: false,
                         context: context,
@@ -430,10 +430,15 @@ class _FarmerRegisteration extends ConsumerState<FarmerRegisteration> {
                             ),
                           );
                         });
+
                     FocusManager.instance.primaryFocus?.unfocus();
+                    Map<String, dynamic> location =
+                        await FarmerModel.getCurrentLocation();
+                    developer.log(location.toString());
+
                     var res =
                         await ServerAuthenticationRoutes.farmerRegisteration(
-                            data);
+                            data, location);
                     Navigator.of(context).pop();
                     if (res != null) {
                       ScaffoldMessenger.of(context).clearSnackBars();
@@ -470,8 +475,6 @@ class _FarmerRegisteration extends ConsumerState<FarmerRegisteration> {
                   if (fromkey.currentState!.validate()) {
                     fromkey.currentState!.save();
 
-                    developer.log(phone, name: "phone num");
-                    //  developer.log(phone);
                     setState(() {
                       currentStep++;
                     });

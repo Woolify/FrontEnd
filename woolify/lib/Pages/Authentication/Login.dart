@@ -136,10 +136,9 @@ class _LoginState extends State<Login> {
                                     );
                                   });
                               var data = await ServerAuthenticationRoutes.login(
-                                  username, password);
+                                  username.trim(), password.trim());
                               Navigator.of(context).pop();
                               if (data['status'] == "success") {
-                                print("))))))))))))))))");
                                 // ignore: use_build_context_synchronously
                                 ServerAuthenticationRoutes.redirectUser(
                                     context, data['role']!);

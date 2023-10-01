@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:go_router/go_router.dart';
@@ -6,7 +7,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:woolify/Router/NamedRoutes.dart';
 import 'package:woolify/SharedPreference.dart';
+import 'package:woolify/Sockets/Notification.dart';
 import 'dart:developer' as developer;
+
+import 'package:woolify/Sockets/SocketsConnect.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
   const SplashScreen({super.key});
@@ -29,24 +33,23 @@ class _SplashScreen extends ConsumerState<SplashScreen> {
     await Future.delayed(Duration(seconds: time));
     if (pref.containsKey("isAlreadyLaunched")) {
       if (pref.containsKey("role")) {
+        CustomNotiFication.initilize();
+        mySocketConnect.connect();
         if (pref.getString('role') == "farmer") {
           developer.log("logged in as farmer");
           GoRouter.of(context).pushReplacementNamed(FarmerRoutes.homePage);
         } else if (pref.getString('role') == "vendor") {
           developer.log("Logged in as vendor");
+          GoRouter.of(context).pushReplacementNamed(VendorRoutes.homePage);
         }
       } else {
         developer.log("to common  homePage");
-        GoRouter.of(context).pushReplacement(CommonRoutes.commonHomePage);
+        GoRouter.of(context).pushReplacementNamed(CommonRoutes.commonHomePage);
       }
-
-      // GoRouter.of(context).pushReplacementNamed(CommonRoutes.commonHomePage);
     } else {
       pref.setBool("isAlreadyLaunched", true);
       GoRouter.of(context).pushReplacementNamed(CommonRoutes.introSlide);
     }
-
-    ("change");
   }
 
   @override

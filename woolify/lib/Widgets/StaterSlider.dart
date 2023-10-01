@@ -97,8 +97,8 @@ class Slide1 extends StatelessWidget {
                   .toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
           painter: RPSCustomPainter(),
         ),
-        SizedBox(
-          height: size.height * 0.58,
+        Expanded(
+          // height: size.height * 0.58,
           child: Stack(
             children: [
               Positioned(
@@ -172,56 +172,58 @@ class Slide2 extends StatelessWidget {
                   .toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
           painter: RPSCustomPainter(),
         ),
-        SizedBox(
-          height: size.height * 0.68,
-          child: Stack(
-            children: [
-              Positioned(
-                left: 0,
-                child: SvgPicture.asset(
-                  'assets/staters/slide2.svg',
-                  height: size.height * 0.17,
+        Expanded(
+          child: SizedBox(
+            // height: size.height * 0.68,
+            child: Stack(
+              children: [
+                Positioned(
+                  left: 0,
+                  child: SvgPicture.asset(
+                    'assets/staters/slide2.svg',
+                    height: size.height * 0.17,
+                  ),
                 ),
-              ),
-              Positioned(
-                right: 0,
-                top: 100,
-                child: SvgPicture.asset(
-                  'assets/staters/slide2a.svg',
-                  height: size.height * 0.2,
+                Positioned(
+                  right: 0,
+                  top: 100,
+                  child: SvgPicture.asset(
+                    'assets/staters/slide2a.svg',
+                    height: size.height * 0.2,
+                  ),
                 ),
-              ),
-              Positioned(
-                  bottom: 70,
-                  left: -50,
-                  child: ClipOval(
-                    child: Container(
-                      color: Color.fromARGB(99, 156, 131, 42),
-                      height: size.height * 0.37,
-                      width: size.width * 0.5,
-                    ),
-                  )),
-              Positioned(
+                Positioned(
+                    bottom: 70,
+                    left: -50,
+                    child: ClipOval(
+                      child: Container(
+                        color: Color.fromARGB(99, 156, 131, 42),
+                        height: size.height * 0.37,
+                        width: size.width * 0.5,
+                      ),
+                    )),
+                Positioned(
+                    left: 50,
+                    bottom: 270,
+                    child: Text(
+                      "WOOL TRACKING",
+                      style: GoogleFonts.irishGrover(fontSize: 30),
+                    )),
+                Positioned(
+                  width: size.width * 0.87,
                   left: 50,
-                  bottom: 270,
+                  bottom: 120,
                   child: Text(
-                    "WOOL TRACKING",
-                    style: GoogleFonts.irishGrover(fontSize: 30),
-                  )),
-              Positioned(
-                width: size.width * 0.87,
-                left: 50,
-                bottom: 120,
-                child: Text(
-                  "Welcome to the fantastic world of wool tracking! Forget about lost bales and uncertain delivery dates – we‘ve got your back. Start your fabulous journey from your sheep‘s cozy embrace to the bustling marketplace, all in real-time.",
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyLarge!
-                      .copyWith(fontWeight: FontWeight.w600),
-                  maxLines: 6,
+                    "Welcome to the fantastic world of wool tracking! Forget about lost bales and uncertain delivery dates – we‘ve got your back. Start your fabulous journey from your sheep‘s cozy embrace to the bustling marketplace, all in real-time.",
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyLarge!
+                        .copyWith(fontWeight: FontWeight.w600),
+                    maxLines: 6,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ],
@@ -247,63 +249,65 @@ class Slide3 extends StatelessWidget {
                   .toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
           painter: RPSCustomPainter(),
         ),
-        SizedBox(
-          height: size.height * 0.68,
-          child: Stack(
-            children: [
-              Positioned(
-                left: 0,
-                child: SvgPicture.asset(
-                  'assets/staters/slide3.svg',
-                  height: size.height * 0.17,
+        Expanded(
+          child: SizedBox(
+            // height: size.height * 0.68,
+            child: Stack(
+              children: [
+                Positioned(
+                  left: 0,
+                  child: SvgPicture.asset(
+                    'assets/staters/slide3.svg',
+                    height: size.height * 0.17,
+                  ),
                 ),
-              ),
-              Positioned(
-                right: 0,
-                top: 100,
-                child: SvgPicture.asset(
-                  'assets/staters/slide3a.svg',
-                  height: size.height * 0.2,
+                Positioned(
+                  right: 0,
+                  top: 100,
+                  child: SvgPicture.asset(
+                    'assets/staters/slide3a.svg',
+                    height: size.height * 0.2,
+                  ),
                 ),
-              ),
-              Positioned(
-                  bottom: 70,
-                  left: -50,
-                  child: ClipOval(
-                    child: Container(
-                      color: Color.fromARGB(99, 156, 131, 42),
-                      height: size.height * 0.37,
-                      width: size.width * 0.5,
-                    ),
-                  )),
-              Positioned(
+                Positioned(
+                    bottom: 70,
+                    left: -50,
+                    child: ClipOval(
+                      child: Container(
+                        color: Color.fromARGB(99, 156, 131, 42),
+                        height: size.height * 0.37,
+                        width: size.width * 0.5,
+                      ),
+                    )),
+                Positioned(
+                    left: 50,
+                    bottom: 270,
+                    child: Text(
+                      "ELEVATE YOUR WOOL",
+                      style: GoogleFonts.irishGrover(fontSize: 30),
+                    )),
+                Positioned(
+                    left: 50,
+                    bottom: 230,
+                    child: Text(
+                      "GAME",
+                      style: GoogleFonts.irishGrover(fontSize: 30),
+                    )),
+                Positioned(
+                  width: size.width * 0.87,
                   left: 50,
-                  bottom: 270,
+                  bottom: 80,
                   child: Text(
-                    "ELEVATE YOUR WOOL",
-                    style: GoogleFonts.irishGrover(fontSize: 30),
-                  )),
-              Positioned(
-                  left: 50,
-                  bottom: 230,
-                  child: Text(
-                    "GAME",
-                    style: GoogleFonts.irishGrover(fontSize: 30),
-                  )),
-              Positioned(
-                width: size.width * 0.87,
-                left: 50,
-                bottom: 80,
-                child: Text(
-                  "Are you a wool producer looking to conquer the quality assurance game? Look no further! Wool Quality Platform is here to bring every wool producer’s dream to life. Say goodbye to haphazard grading and hello to top-notch methods.",
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyLarge!
-                      .copyWith(fontWeight: FontWeight.w600),
-                  maxLines: 7,
+                    "Are you a wool producer looking to conquer the quality assurance game? Look no further! Wool Quality Platform is here to bring every wool producer’s dream to life. Say goodbye to haphazard grading and hello to top-notch methods.",
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyLarge!
+                        .copyWith(fontWeight: FontWeight.w600),
+                    maxLines: 7,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ],
@@ -329,63 +333,65 @@ class Slide4 extends StatelessWidget {
                   .toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
           painter: RPSCustomPainter(),
         ),
-        SizedBox(
-          height: size.height * 0.68,
-          child: Stack(
-            children: [
-              Positioned(
-                left: 0,
-                child: SvgPicture.asset(
-                  'assets/staters/slide4.svg',
-                  height: size.height * 0.17,
+        Expanded(
+          child: SizedBox(
+            // height: size.height * 0.68,
+            child: Stack(
+              children: [
+                Positioned(
+                  left: 0,
+                  child: SvgPicture.asset(
+                    'assets/staters/slide4.svg',
+                    height: size.height * 0.17,
+                  ),
                 ),
-              ),
-              Positioned(
-                right: 0,
-                top: 100,
-                child: SvgPicture.asset(
-                  'assets/staters/slide4a.svg',
-                  height: size.height * 0.2,
+                Positioned(
+                  right: 0,
+                  top: 100,
+                  child: SvgPicture.asset(
+                    'assets/staters/slide4a.svg',
+                    height: size.height * 0.2,
+                  ),
                 ),
-              ),
-              Positioned(
-                  bottom: 70,
-                  left: -50,
-                  child: ClipOval(
-                    child: Container(
-                      color: Color.fromARGB(99, 156, 131, 42),
-                      height: size.height * 0.37,
-                      width: size.width * 0.5,
-                    ),
-                  )),
-              Positioned(
+                Positioned(
+                    bottom: 70,
+                    left: -50,
+                    child: ClipOval(
+                      child: Container(
+                        color: Color.fromARGB(99, 156, 131, 42),
+                        height: size.height * 0.37,
+                        width: size.width * 0.5,
+                      ),
+                    )),
+                Positioned(
+                    left: 50,
+                    bottom: 270,
+                    child: Text(
+                      "WOOL STORAGE &",
+                      style: GoogleFonts.irishGrover(fontSize: 30),
+                    )),
+                Positioned(
+                    left: 50,
+                    bottom: 230,
+                    child: Text(
+                      "WAREHOUSING",
+                      style: GoogleFonts.irishGrover(fontSize: 30),
+                    )),
+                Positioned(
+                  width: size.width * 0.87,
                   left: 50,
-                  bottom: 270,
+                  bottom: 80,
                   child: Text(
-                    "WOOL STORAGE &",
-                    style: GoogleFonts.irishGrover(fontSize: 30),
-                  )),
-              Positioned(
-                  left: 50,
-                  bottom: 230,
-                  child: Text(
-                    "WAREHOUSING",
-                    style: GoogleFonts.irishGrover(fontSize: 30),
-                  )),
-              Positioned(
-                width: size.width * 0.87,
-                left: 50,
-                bottom: 80,
-                child: Text(
-                  "Welcome to Woolify, the future of wool storage and management! Gone are the days of tedious manual labor and disorganized wool bales. With WoolHub, you’ll easily manage your entire wool inventory with just a few clicks.",
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyLarge!
-                      .copyWith(fontWeight: FontWeight.w600),
-                  maxLines: 7,
+                    "Welcome to Woolify, the future of wool storage and management! Gone are the days of tedious manual labor and disorganized wool bales. With WoolHub, you’ll easily manage your entire wool inventory with just a few clicks.",
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyLarge!
+                        .copyWith(fontWeight: FontWeight.w600),
+                    maxLines: 7,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ],
@@ -411,63 +417,65 @@ class Slide5 extends StatelessWidget {
                   .toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
           painter: RPSCustomPainter(),
         ),
-        SizedBox(
-          height: size.height * 0.68,
-          child: Stack(
-            children: [
-              Positioned(
-                left: 0,
-                child: SvgPicture.asset(
-                  'assets/staters/slide5.svg',
-                  height: size.height * 0.17,
+        Expanded(
+          child: SizedBox(
+            // height: size.height * 0.68,
+            child: Stack(
+              children: [
+                Positioned(
+                  left: 0,
+                  child: SvgPicture.asset(
+                    'assets/staters/slide5.svg',
+                    height: size.height * 0.17,
+                  ),
                 ),
-              ),
-              Positioned(
-                right: 0,
-                top: 100,
-                child: SvgPicture.asset(
-                  'assets/staters/slide5a.svg',
-                  height: size.height * 0.2,
+                Positioned(
+                  right: 0,
+                  top: 100,
+                  child: SvgPicture.asset(
+                    'assets/staters/slide5a.svg',
+                    height: size.height * 0.2,
+                  ),
                 ),
-              ),
-              Positioned(
-                  bottom: 70,
-                  left: -50,
-                  child: ClipOval(
-                    child: Container(
-                      color: Color.fromARGB(99, 156, 131, 42),
-                      height: size.height * 0.37,
-                      width: size.width * 0.5,
-                    ),
-                  )),
-              Positioned(
+                Positioned(
+                    bottom: 70,
+                    left: -50,
+                    child: ClipOval(
+                      child: Container(
+                        color: Color.fromARGB(99, 156, 131, 42),
+                        height: size.height * 0.37,
+                        width: size.width * 0.5,
+                      ),
+                    )),
+                Positioned(
+                    left: 50,
+                    bottom: 270,
+                    child: Text(
+                      "WOOLIFY",
+                      style: GoogleFonts.irishGrover(fontSize: 30),
+                    )),
+                Positioned(
+                    left: 50,
+                    bottom: 230,
+                    child: Text(
+                      "MARKETPLACE",
+                      style: GoogleFonts.irishGrover(fontSize: 30),
+                    )),
+                Positioned(
+                  width: size.width * 0.87,
                   left: 50,
-                  bottom: 270,
+                  bottom: 80,
                   child: Text(
-                    "WOOLIFY",
-                    style: GoogleFonts.irishGrover(fontSize: 30),
-                  )),
-              Positioned(
-                  left: 50,
-                  bottom: 230,
-                  child: Text(
-                    "MARKETPLACE",
-                    style: GoogleFonts.irishGrover(fontSize: 30),
-                  )),
-              Positioned(
-                width: size.width * 0.87,
-                left: 50,
-                bottom: 80,
-                child: Text(
-                  "Dive into the world of wool education and training like never before! Woolify helps wool producers and artisans level up their game by offering region-specific resources and tips to hone their skills.",
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyLarge!
-                      .copyWith(fontWeight: FontWeight.w600),
-                  maxLines: 7,
+                    "Dive into the world of wool education and training like never before! Woolify helps wool producers and artisans level up their game by offering region-specific resources and tips to hone their skills.",
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyLarge!
+                        .copyWith(fontWeight: FontWeight.w600),
+                    maxLines: 7,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ],
@@ -493,75 +501,80 @@ class Slide6 extends StatelessWidget {
                   .toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
           painter: RPSCustomPainter(),
         ),
-        SizedBox(
-          height: size.height * 0.68,
-          child: Stack(
-            children: [
-              Positioned(
-                left: 0,
-                child: SvgPicture.asset(
-                  'assets/staters/slide6.svg',
-                  height: size.height * 0.17,
+        Expanded(
+          child: SizedBox(
+            // height: size.height * 0.68,
+            child: Stack(
+              children: [
+                Positioned(
+                  left: 0,
+                  child: SvgPicture.asset(
+                    'assets/staters/slide6.svg',
+                    height: size.height * 0.17,
+                  ),
                 ),
-              ),
-              Positioned(
-                right: 0,
-                top: 100,
-                child: SvgPicture.asset(
-                  'assets/staters/slide6a.svg',
-                  height: size.height * 0.2,
+                Positioned(
+                  right: 0,
+                  top: 100,
+                  child: SvgPicture.asset(
+                    'assets/staters/slide6a.svg',
+                    height: size.height * 0.2,
+                  ),
                 ),
-              ),
-              Positioned(
-                  bottom: 70,
-                  left: -50,
-                  child: ClipOval(
-                    child: Container(
-                      color: Color.fromARGB(99, 156, 131, 42),
-                      height: size.height * 0.37,
-                      width: size.width * 0.5,
-                    ),
-                  )),
-              Positioned(
+                Positioned(
+                    bottom: 70,
+                    left: -50,
+                    child: ClipOval(
+                      child: Container(
+                        color: Color.fromARGB(99, 156, 131, 42),
+                        height: size.height * 0.37,
+                        width: size.width * 0.5,
+                      ),
+                    )),
+                Positioned(
+                    left: 50,
+                    bottom: 270,
+                    child: Text(
+                      "WOOL EDUCATION & ",
+                      style: GoogleFonts.irishGrover(fontSize: 30),
+                    )),
+                Positioned(
+                    left: 50,
+                    bottom: 230,
+                    child: Text(
+                      "TRAINNING",
+                      style: GoogleFonts.irishGrover(fontSize: 30),
+                    )),
+                Positioned(
+                  width: size.width * 0.87,
                   left: 50,
-                  bottom: 270,
+                  bottom: 80,
                   child: Text(
-                    "WOOL EDUCATION & ",
-                    style: GoogleFonts.irishGrover(fontSize: 30),
-                  )),
-              Positioned(
-                  left: 50,
-                  bottom: 230,
-                  child: Text(
-                    "TRAINNING",
-                    style: GoogleFonts.irishGrover(fontSize: 30),
-                  )),
-              Positioned(
-                width: size.width * 0.87,
-                left: 50,
-                bottom: 80,
-                child: Text(
-                  "Dive into the world of wool education and training like never before! WoolWise helps wool producers and artisans level up their game by offering region-specific resources and tips to hone their skills.",
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyLarge!
-                      .copyWith(fontWeight: FontWeight.w600),
-                  maxLines: 7,
+                    "Dive into the world of wool education and training like never before! WoolWise helps wool producers and artisans level up their game by offering region-specific resources and tips to hone their skills.",
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyLarge!
+                        .copyWith(fontWeight: FontWeight.w600),
+                    maxLines: 7,
+                  ),
                 ),
-              ),
-              Positioned(
-                  left: 170,
-                  bottom: 10,
-                  child: ElevatedButton(
-                      onPressed: () {
-                        GoRouter.of(context)
-                            .pushReplacementNamed("commonHomePage");
-                      },
-                      child: Text(
-                        "Continue",
-                        style: Theme.of(context).textTheme.bodyLarge,
-                      ))),
-            ],
+                Positioned.fill(
+                    // left: 170,
+                    bottom: 10,
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: ElevatedButton(
+                          onPressed: () {
+                            GoRouter.of(context)
+                                .pushReplacementNamed("commonHomePage");
+                          },
+                          child: Text(
+                            "Continue",
+                            style: Theme.of(context).textTheme.bodyLarge,
+                          )),
+                    )),
+              ],
+            ),
           ),
         ),
       ],

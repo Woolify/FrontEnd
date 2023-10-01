@@ -44,7 +44,7 @@ class RollCard extends StatelessWidget {
                     .bodyLarge!
                     .copyWith(fontSize: 15, fontWeight: FontWeight.bold),
               ),
-              Spacer(),
+              const Spacer(),
               Center(
                   child: IconButton(
                       onPressed: () {},
